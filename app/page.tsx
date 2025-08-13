@@ -123,7 +123,7 @@ export default function HomePage() {
       </section>
 
       {/* Know Your Rights Section */}
-      <section id="rights" className="py-20 bg-slate-50">
+      <section id="rights" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Know Your Rights</h2>
@@ -176,112 +176,6 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-slate-600">{item.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Get Involved Section */}
-      <section id="get-involved" className="py-20 bg-emerald-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl font-bold mb-4">Get Involved</h2>
-            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Join our movement to strengthen Hispanic civic participation across Texas. Every action makes a
-              difference.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Volunteer",
-                description: "Help with voter registration drives and community outreach",
-                action: "Join Us",
-              },
-              {
-                title: "Donate",
-                description: "Support our policy research and advocacy efforts",
-                action: "Contribute",
-              },
-              {
-                title: "Spread the Word",
-                description: "Share our mission with your family and community",
-                action: "Share",
-              },
-              {
-                title: "Stay Informed",
-                description: "Subscribe to our newsletter for updates and alerts",
-                action: "Subscribe",
-              },
-            ].map((item, index) => (
-              <Card key={index} className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
-                <CardHeader>
-                  <CardTitle className="font-serif text-xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-emerald-100 mb-4">{item.description}</CardDescription>
-                  <Button variant="secondary" className="w-full bg-white text-emerald-700 hover:bg-slate-100">
-                    {item.action}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Impact Stories Section */}
-      <section id="impact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Our Impact</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Real stories from community members whose lives have been changed through civic engagement.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Maria Rodriguez",
-                location: "Houston, TX",
-                story:
-                  "Through HVMT's voter education program, I learned about my rights and helped register 50 new voters in my neighborhood.",
-                impact: "50+ New Voters",
-              },
-              {
-                name: "Carlos Mendoza",
-                location: "San Antonio, TX",
-                story:
-                  "The policy analysis helped our community challenge discriminatory voting practices and secure better polling access.",
-                impact: "Policy Change",
-              },
-              {
-                name: "Ana Gutierrez",
-                location: "Dallas, TX",
-                story:
-                  "I became a community organizer after attending HVMT workshops. Now I lead voter registration drives across the city.",
-                impact: "Community Leader",
-              },
-            ].map((story, index) => (
-              <Card key={index} className="border-0 shadow-lg">
-                <CardHeader>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <Heart className="h-6 w-6 text-emerald-600" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg">{story.name}</CardTitle>
-                      <CardDescription>{story.location}</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-600 mb-4 leading-relaxed">"{story.story}"</p>
-                  <Badge className="bg-emerald-100 text-emerald-700">{story.impact}</Badge>
                 </CardContent>
               </Card>
             ))}
@@ -371,6 +265,112 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Impact Stories Section */}
+      <section id="impact" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Our Impact</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Real stories from community members whose lives have been changed through civic engagement.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Maria Rodriguez",
+                location: "Houston, TX",
+                story:
+                  "Through HVMT's voter education program, I learned about my rights and helped register 50 new voters in my neighborhood.",
+                impact: "50+ New Voters",
+              },
+              {
+                name: "Carlos Mendoza",
+                location: "San Antonio, TX",
+                story:
+                  "The policy analysis helped our community challenge discriminatory voting practices and secure better polling access.",
+                impact: "Policy Change",
+              },
+              {
+                name: "Ana Gutierrez",
+                location: "Dallas, TX",
+                story:
+                  "I became a community organizer after attending HVMT workshops. Now I lead voter registration drives across the city.",
+                impact: "Community Leader",
+              },
+            ].map((story, index) => (
+              <Card key={index} className="border-0 shadow-lg">
+                <CardHeader>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                      <Heart className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg">{story.name}</CardTitle>
+                      <CardDescription>{story.location}</CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-600 mb-4 leading-relaxed">"{story.story}"</p>
+                  <Badge className="bg-emerald-100 text-emerald-700">{story.impact}</Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Get Involved Section */}
+      <section id="get-involved" className="py-20 bg-emerald-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl font-bold mb-4">Get Involved</h2>
+            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
+              Join our movement to strengthen Hispanic civic participation across Texas. Every action makes a
+              difference.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Volunteer",
+                description: "Help with voter registration drives and community outreach",
+                action: "Join Us",
+              },
+              {
+                title: "Donate",
+                description: "Support our policy research and advocacy efforts",
+                action: "Contribute",
+              },
+              {
+                title: "Spread the Word",
+                description: "Share our mission with your family and community",
+                action: "Share",
+              },
+              {
+                title: "Stay Informed",
+                description: "Subscribe to our newsletter for updates and alerts",
+                action: "Subscribe",
+              },
+            ].map((item, index) => (
+              <Card key={index} className="bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">
+                <CardHeader>
+                  <CardTitle className="font-serif text-xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-emerald-100 mb-4">{item.description}</CardDescription>
+                  <Button variant="secondary" className="w-full bg-white text-emerald-700 hover:bg-slate-100">
+                    {item.action}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -425,11 +425,6 @@ export default function HomePage() {
                 <li>
                   <a href="#get-involved" className="hover:text-emerald-400 transition-colors">
                     Get Involved
-                  </a>
-                </li>
-                <li>
-                  <a href="#impact" className="hover:text-emerald-400 transition-colors">
-                    Impact Stories
                   </a>
                 </li>
                 <li>
