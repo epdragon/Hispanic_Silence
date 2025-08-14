@@ -8,36 +8,33 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
       <nav className="sticky top-0 z-50 bg-emerald-600 backdrop-blur-sm border-b border-emerald-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-12">
+          <div className="flex items-center justify-between h-10">
             <div className="flex items-center space-x-2">
-              <Vote className="h-6 w-6 text-white" />
-              <span className="font-serif font-bold text-lg text-white">Hispanic Votes Matter Texas</span>
+              <Vote className="h-5 w-5 text-white" />
+              <span className="font-serif font-bold text-base text-white">Hispanic Votes Matter TX</span>
             </div>
-            <div className="flex items-center space-x-6">
-              <a href="#about" className="text-white hover:text-emerald-200 transition-colors font-medium text-sm">
-                About
+            <div className="flex items-center space-x-4">
+              <a href="#hero" className="text-white hover:text-emerald-200 transition-colors font-medium text-xs">
+                Home
               </a>
-              <a href="#rights" className="text-white hover:text-emerald-200 transition-colors font-medium text-sm">
-                Know Your Rights
+              <a href="#metrics" className="text-white hover:text-emerald-200 transition-colors font-medium text-xs">
+                Metrics
               </a>
-              <a
-                href="#get-involved"
-                className="text-white hover:text-emerald-200 transition-colors font-medium text-sm"
-              >
-                Get Involved
+              <a href="#mission" className="text-white hover:text-emerald-200 transition-colors font-medium text-xs">
+                Mission
               </a>
-              <a href="#metrics" className="text-white hover:text-emerald-200 transition-colors font-medium text-sm">
-                Hispanic Voter Metrics
+              <a href="#rights" className="text-white hover:text-emerald-200 transition-colors font-medium text-xs">
+                Rights
               </a>
-              <Button size="sm" className="bg-white hover:bg-emerald-50 text-emerald-600">
-                Contact Us
-              </Button>
+              <a href="#contact" className="text-white hover:text-emerald-200 transition-colors font-medium text-xs">
+                Contact
+              </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <section className="py-12 bg-slate-50">
+      <section id="hero" className="py-12 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="border-0 shadow-xl bg-white">
             <CardContent className="p-12 text-center">
@@ -65,7 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 bg-slate-50">
+      <section id="metrics" className="py-12 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="border-0 shadow-xl bg-white">
             <CardHeader className="text-center pb-6">
@@ -127,7 +124,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 bg-slate-50">
+      <section id="mission" className="py-12 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="border-0 shadow-xl bg-white">
             <CardHeader className="text-center pb-8">
@@ -175,7 +172,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 bg-slate-50">
+      <section id="rights" className="py-12 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="border-0 shadow-xl bg-white">
             <CardHeader className="text-center pb-8">
@@ -220,56 +217,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 bg-slate-50">
+      <footer id="contact" className="bg-emerald-600 text-white py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-0 shadow-xl bg-white">
-            <CardHeader className="text-center pb-8">
-              <CardTitle className="font-serif text-3xl text-emerald-600 mb-4">Contact Us</CardTitle>
-              <CardDescription className="text-lg text-emerald-600 max-w-3xl mx-auto">
-                Get in touch with us to learn more about our work or to get involved in our mission.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-12">
-                <div>
-                  <div className="flex items-center space-x-2 mb-6">
-                    <Vote className="h-8 w-8 text-emerald-600" />
-                    <span className="font-serif font-bold text-xl text-emerald-600">Hispanic Votes Matter Texas</span>
-                  </div>
-                  <p className="text-emerald-600 mb-6 leading-relaxed">
-                    Empowering Hispanic communities through forensic policy analysis, civic engagement, and voting
-                    rights advocacy across Texas.
-                  </p>
-                  <div className="space-y-3 text-emerald-600">
-                    <p>📧 info@hispanicvotesmattertx.org</p>
-                    <p>📞 (512) 555-0123</p>
-                    <p>📍 Austin, Texas</p>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            <div className="flex items-center space-x-2">
+              <Vote className="h-6 w-6 text-white" />
+              <span className="font-serif font-bold text-lg text-white">Hispanic Votes Matter TX</span>
+            </div>
 
-                <div>
-                  <h3 className="font-serif font-semibold text-xl text-emerald-600 mb-6">Get Involved</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Volunteer</Button>
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Donate</Button>
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Share</Button>
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Subscribe</Button>
-                  </div>
-                  <div className="flex space-x-4 mt-6">
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Facebook</Button>
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Twitter</Button>
-                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Instagram</Button>
-                  </div>
-                </div>
-              </div>
+            <div className="text-center">
+              <p className="text-emerald-100 mb-2">info@hispanicvotesmattertx.org</p>
+              <p className="text-emerald-100">Austin, Texas</p>
+            </div>
 
-              <div className="border-t border-emerald-200 mt-8 pt-6 text-center text-emerald-600">
-                <p>&copy; 2024 Hispanic Votes Matter Texas. All rights reserved.</p>
-              </div>
-            </CardContent>
-          </Card>
+            <div className="flex justify-center md:justify-end space-x-3">
+              <Button size="sm" className="bg-white hover:bg-emerald-50 text-emerald-600">
+                Get Involved
+              </Button>
+              <Button size="sm" className="bg-white hover:bg-emerald-50 text-emerald-600">
+                Contact Us
+              </Button>
+            </div>
+          </div>
+
+          <div className="border-t border-emerald-500 mt-6 pt-4 text-center text-emerald-200 text-sm">
+            <p>&copy; 2024 Hispanic Votes Matter Texas. All rights reserved.</p>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
   )
 }
