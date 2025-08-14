@@ -14,7 +14,7 @@ export default function HomePage() {
               <Vote className="h-8 w-8 text-emerald-600" />
               <span className="font-serif font-bold text-xl text-slate-900">Hispanic Votes Matter Texas</span>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-center space-x-8">
               <a href="#about" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
                 About
               </a>
