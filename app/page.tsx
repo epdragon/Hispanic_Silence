@@ -18,9 +18,7 @@ export default function HomePage() {
               <a href="#about" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
                 About
               </a>
-              <a href="#rights" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
-                Know Your Rights
-              </a>
+              <a href="#rights" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">              </a>
               <a href="#get-involved" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">              </a>
               <a href="#impact" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">              </a>
               <a href="#metrics" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
