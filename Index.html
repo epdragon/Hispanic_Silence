@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website: The Texas Redistricting Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #00171f; /* rich-black */
+            color: #ffffff; /* white */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .gemini-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            align-items: center;
+            justify-content: center;
+        }
+        .gemini-modal-content {
+            background-color: #003459; /* prussian-blue */
+            color: #ffffff;
+            margin: auto;
+            padding: 24px;
+            border: 1px solid #007ea7;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+        .loader {
+            border: 4px solid #007ea7; /* cerulean */
+            border-radius: 50%;
+            border-top: 4px solid #00a8e8; /* picton-blue */
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #00a8e8; /* picton-blue */
+        }
+        .resource-btn, .gemini-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="bg-[#003459]/80 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white">Redistricting Analysis</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#infographic" class="nav-link text-gray-300">The Infographic</a>
+                <a href="#analysis" class="nav-link text-gray-300">Analyze Your District</a>
+                <a href="#resources" class="nav-link text-gray-300">Resources</a>
+                <a href="#action" class="nav-link text-gray-300">Take Action</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-16">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-4">Unveiling the Map</h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">An interactive analysis of Texas's latest congressional map and its impact on the voting power of Hispanic communities.</p>
+        </header>
+
+        <main class="space-y-20">
+            
+            <section id="infographic" class="scroll-mt-20">
+                <div class="bg-[#003459] rounded-2xl shadow-2xl p-6 md:p-8 data-section">
+                    <h2 class="text-3xl font-bold text-white mb-4">The Hard Numbers: Key Districts Targeted</h2>
+                    <p class="mb-8 text-gray-300">State data reveals a consistent pattern across several key districts where the share of Spanish Surname Voters (SSVR), a proxy for the Hispanic electorate, has been reduced. This reduction is often coupled with a relative decrease in voter turnout, amplifying the shift in political power.</p>
+                    <div class="chart-container">
+                        <canvas id="districtChangesChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-center text-gray-500">This chart compares the percentage point change in Hispanic voter share (SSVR) and the relative change in voter turnout.</p>
+                    <div class="mt-6 text-center">
+                        <button class="gemini-explain-btn gemini-btn bg-[#00a8e8] text-white font-bold py-2 px-5 hover:bg-[#008ac7]">✨ Explain This Section</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Gemini Feature Section -->
+            <section id="analysis" class="scroll-mt-20">
+                <h2 class="text-4xl font-bold text-white text-center mb-10">Analyze Your District</h2>
+                <div class="bg-[#003459] rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+                    <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8">Enter your Texas congressional district number (e.g., 23) or your city to get an AI-powered analysis of how the new maps might affect your community's representation.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <input type="text" id="district-input" placeholder="Enter District # or City (e.g., El Paso)" class="w-full sm:w-80 px-4 py-2 rounded-lg bg-[#00171f] text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00a8e8]">
+                        <button id="gemini-analyze-district-btn" class="gemini-btn bg-[#00a8e8] hover:bg-[#008ac7] text-white font-semibold w-full sm:w-auto">
+                            ✨ Analyze My Area
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="resources" class="scroll-mt-20">
+                <h2 class="text-4xl font-bold text-white text-center mb-10">Resources</h2>
+                <div class="bg-[#003459] rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+                    <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8">Explore the complete findings, watch the video report, and access the official data portal to dive deeper into the analysis.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                         <a href="https://docs.google.com/document/d/1-D0bmgClNBeWeEimHZTKc_eVQvqOyoUhGxuZNkxzQMM/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="resource-btn bg-[#007ea7] hover:bg-[#005f7e] text-white">
+                            Read The Findings <span class="ml-2">→</span>
+                         </a>
+                         <a href="https://youtu.be/g5Dj5kWTeAY?feature=shared" target="_blank" rel="noopener noreferrer" class="resource-btn bg-[#007ea7] hover:bg-[#005f7e] text-white">
+                            Watch Report Video <span class="ml-2">→</span>
+                         </a>
+                         <a href="https://data.capitol.texas.gov/topic/redistricting" target="_blank" rel="noopener noreferrer" class="resource-btn bg-[#007ea7] hover:bg-[#005f7e] text-white">
+                            Access Data Portal <span class="ml-2">→</span>
+                         </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="action" class="scroll-mt-20">
+                <h2 class="text-4xl font-bold text-white text-center mb-10">Take Action</h2>
+                <div class="bg-[#003459] rounded-2xl shadow-2xl p-8 md:p-12 text-center space-y-6">
+                    <div>
+                        <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-4">Your voice matters. Use the power of AI to draft a message to your representative urging them to support fair and equitable redistricting processes.</p>
+                        <button id="gemini-draft-email-btn" class="gemini-btn bg-[#00a8e8] hover:bg-[#008ac7] text-white font-semibold">
+                            ✨ Draft an Email to Your Representative
+                        </button>
+                    </div>
+                    <hr class="border-gray-700 max-w-md mx-auto">
+                    <div>
+                        <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-4">Be prepared for the conversation. Generate common counter-arguments and effective, fact-based responses to strengthen your advocacy.</p>
+                        <button id="gemini-counter-args-btn" class="gemini-btn bg-[#00a8e8] hover:bg-[#008ac7] text-white font-semibold">
+                            ✨ Get Rebuttals to Counter-Arguments
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <footer class="text-center pt-8">
+                <div class="bg-[#003459] text-white rounded-2xl p-8">
+                    <h2 class="text-3xl font-bold mb-4">Conclusion: An Unlikely Coincidence</h2>
+                    <p class="text-gray-300 text-lg mb-6">The probability of this consistent racial replacement pattern occurring by chance across multiple strategic districts is extremely low. The most reasonable inference is that race—specifically the strength of the Hispanic vote—was a primary factor in shaping these new districts.</p>
+                    <button id="gemini-summary-btn" class="gemini-btn bg-[#00a8e8] text-white font-bold py-2 px-5 hover:bg-[#008ac7]">✨ Generate Sharable Summary</button>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <div id="gemini-modal" class="gemini-modal">
+        <div class="gemini-modal-content">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="gemini-modal-title" class="text-2xl font-bold text-white">AI-Powered Explanation</h3>
+                <button id="gemini-modal-close" class="text-3xl font-bold text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div id="gemini-modal-body" class="prose prose-invert max-w-none text-gray-300">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const newPalette = {
+                background: '#00171f',
+                card: '#003459',
+                text: '#ffffff',
+                subtleText: '#A0A0A0',
+                accent1: '#00a8e8', // picton-blue
+                accent2: '#007ea7'  // cerulean
+            };
+            
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const wrapLabel = (label, maxLength = 20) => {
+                if (label.length <= maxLength) return label;
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxLength && currentLine.length > 0) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: newPalette.subtleText,
+                            font: { family: "'Inter', sans-serif", size: 14, weight: '600' }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) label += ': ';
+                                if (context.parsed.y !== null) label += context.parsed.y + '%';
+                                return label;
+                            }
+                        },
+                        backgroundColor: 'rgba(0, 23, 31, 0.8)',
+                        titleFont: { family: "'Inter', sans-serif", size: 16 },
+                        bodyFont: { family: "'Inter', sans-serif", size: 14 }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: newPalette.subtleText, font: { family: "'Inter', sans-serif", size: 12 } },
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: { 
+                            color: newPalette.subtleText, 
+                            font: { family: "'Inter', sans-serif" },
+                            callback: function(value) { return value + '%'; }
+                        },
+                        grid: { color: 'rgba(0, 126, 167, 0.2)' }
+                    }
+                }
+            };
+
+            const districtChangesCtx = document.getElementById('districtChangesChart').getContext('2d');
+            const districtLabels = [
+                'District 27 (Coastal Bend)', 
+                'District 15 (South Texas)', 
+                'District 36 (SE Houston/Gulf Coast)', 
+                'District 7 (Houston Suburbs)'
+            ];
+            new Chart(districtChangesCtx, {
+                type: 'bar',
+                data: {
+                    labels: districtLabels.map(label => wrapLabel(label)),
+                    datasets: [
+                        {
+                            label: 'Hispanic Voter Share (SSVR) Change',
+                            data: [-1.0, -0.5, -0.5, -0.1],
+                            backgroundColor: newPalette.accent1,
+                            borderColor: '#008ac7',
+                            borderWidth: 1,
+                            borderRadius: 5
+                        },
+                        {
+                            label: 'Turnout vs. Registered Voters Change',
+                            data: [-6.5, -6.5, -8.1, -9.8],
+                            backgroundColor: newPalette.accent2,
+                            borderColor: '#005f7e',
+                            borderWidth: 1,
+                            borderRadius: 5
+                        }
+                    ]
+                },
+                options: defaultChartOptions
+            });
+
+            const modal = document.getElementById('gemini-modal');
+            const modalTitle = document.getElementById('gemini-modal-title');
+            const modalBody = document.getElementById('gemini-modal-body');
+            const closeModalBtn = document.getElementById('gemini-modal-close');
+
+            const showModal = (title) => {
+                modalTitle.textContent = title;
+                modalBody.innerHTML = '<div class="loader"></div>';
+                modal.style.display = 'flex';
+            };
+
+            const hideModal = () => {
+                modal.style.display = 'none';
+            };
+
+            closeModalBtn.addEventListener('click', hideModal);
+            window.addEventListener('click', (event) => {
+                if (event.target == modal) hideModal();
+            });
+
+            async function callGeminiApi(prompt, maxRetries = 3) {
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+
+                for (let i = 0; i < maxRetries; i++) {
+                    try {
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+                        const result = await response.json();
+                        if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                            return result.candidates[0].content.parts[0].text;
+                        } else {
+                            throw new Error("Invalid response structure from API");
+                        }
+                    } catch (error) {
+                        console.error(`Attempt ${i + 1} failed:`, error);
+                        if (i === maxRetries - 1) return "Sorry, I couldn't get a response. Please try again later.";
+                        await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+                    }
+                }
+            }
+
+            // Function to format Gemini response with basic markdown
+            function formatGeminiResponse(text) {
+                return text
+                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>') // Bold
+                    .replace(/\n/g, '<br>'); // Newlines
+            }
+
+            document.querySelectorAll('.gemini-explain-btn').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const section = e.target.closest('.data-section');
+                    const title = section.querySelector('h2').textContent;
+                    const content = Array.from(section.querySelectorAll('p')).map(p => p.textContent).join(' ');
+                    const prompt = `In simple, clear terms, explain the key takeaway from the following section of an infographic about Texas redistricting. Title: "${title}". Content: "${content}"`;
+                    showModal('✨ AI-Powered Explanation');
+                    const explanation = await callGeminiApi(prompt);
+                    modalBody.innerHTML = `<p class="text-lg">${formatGeminiResponse(explanation)}</p>`;
+                });
+            });
+
+            document.getElementById('gemini-draft-email-btn').addEventListener('click', async () => {
+                const prompt = `Based on the finding that Texas's new political maps dilute the voting power of Hispanic communities, please draft a formal and respectful email to a state representative. The email should: 1. State the concern clearly. 2. Reference the key findings (reduced Hispanic voter share and turnout in specific districts). 3. Urge the representative to support fair and equitable mapping processes in the future. 4. Include placeholders like [Your Name], [Your City], and [Representative's Name].`;
+                showModal('✨ Draft Email to Representative');
+                const emailDraft = await callGeminiApi(prompt);
+                modalBody.innerHTML = `<textarea class="w-full h-64 p-2 border rounded-lg bg-[#00171f] text-white border-gray-600">${emailDraft}</textarea><p class="text-sm text-gray-500 mt-2">Copy this text and send it to your representative.</p>`;
+            });
+
+            document.getElementById('gemini-summary-btn').addEventListener('click', async () => {
+                const fullContent = "The infographic argues that Texas's recent redistricting was designed to dilute the Hispanic vote. Key points: 1) In districts like 27, 15, 36, and 7, the Hispanic voter share (SSVR) and relative turnout dropped. 2) These voters were replaced by non-Hispanic Anglo voters. 3) This pattern appears intentional due to targeted geographic swaps, focus on strategic political areas, and alignment with turnout changes, making a random occurrence unlikely.";
+                const prompt = `Summarize the key findings of this analysis on Texas redistricting in under 280 characters, suitable for sharing on X/Twitter. The summary should be impactful and clear. Key findings: "${fullContent}"`;
+
+                showModal('✨ Sharable Summary');
+                const summary = await callGeminiApi(prompt);
+                modalBody.innerHTML = `<textarea class="w-full h-32 p-2 border rounded-lg bg-[#00171f] text-white border-gray-600">${summary}</textarea><p class="text-sm text-gray-500 mt-2">Copy and share this summary!</p>`;
+            });
+
+            // --- NEW GEMINI FEATURES ---
+
+            // 1. Analyze Your District
+            document.getElementById('gemini-analyze-district-btn').addEventListener('click', async () => {
+                const districtInput = document.getElementById('district-input').value;
+                if (!districtInput) {
+                    alert('Please enter a district number or city.');
+                    return;
+                }
+                const prompt = `You are an expert analyst on Texas politics. Based on the general findings presented on this website (that new maps diluted Hispanic voting power by reducing their share in key districts), provide a potential analysis for the following area: "${districtInput}". Explain how similar tactics might have been applied there, what the potential impact on representation for minority communities could be, and why residents should be concerned. Frame it as a speculative analysis based on the overall pattern.`;
+                showModal(`✨ AI Analysis for ${districtInput}`);
+                const analysis = await callGeminiApi(prompt);
+                modalBody.innerHTML = `<div class="text-lg">${formatGeminiResponse(analysis)}</div>`;
+            });
+
+            // 2. Counter-Argument Generator
+            document.getElementById('gemini-counter-args-btn').addEventListener('click', async () => {
+                const prompt = `I am an advocate for fair redistricting in Texas, using data that shows the new maps dilute the Hispanic vote. To prepare for discussions, please provide me with 2-3 common counter-arguments I might face. For each counter-argument, provide a concise and effective fact-based rebuttal. For example, a counter-argument could be "the maps were drawn based on population changes, not race." Format the response clearly with the counter-argument in bold.`;
+                showModal('✨ Rebuttals to Counter-Arguments');
+                const rebuttals = await callGeminiApi(prompt);
+                modalBody.innerHTML = `<div class="text-lg">${formatGeminiResponse(rebuttals)}</div>`;
+            });
+        });
+    </script>
+</body>
+</html>
