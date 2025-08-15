@@ -5,29 +5,29 @@ import { ArrowRight, Users, FileText, BarChart3, Vote, Shield, Heart } from "luc
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+      <nav className="sticky top-0 z-50 bg-emerald-600 backdrop-blur-sm border-b border-emerald-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
-              <Vote className="h-8 w-8 text-emerald-600" />
-              <span className="font-serif font-bold text-xl text-slate-900">Hispanic Votes Matter Texas</span>
+              <Vote className="h-8 w-8 text-white" />
+              <span className="font-serif font-bold text-xl text-white">Hispanic Votes Matter Texas</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
+              <a href="#about" className="text-emerald-100 hover:text-white transition-colors font-medium">
                 About
               </a>
-              <a href="#rights" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
+              <a href="#rights" className="text-emerald-100 hover:text-white transition-colors font-medium">
                 Know Your Rights
               </a>
-              <a href="#metrics" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
+              <a href="#metrics" className="text-emerald-100 hover:text-white transition-colors font-medium">
                 Hispanic Voter Metrics
               </a>
-              <a href="#impact" className="text-slate-600 hover:text-emerald-600 transition-colors font-medium">
+              <a href="#impact" className="text-emerald-100 hover:text-white transition-colors font-medium">
                 Impact
               </a>
-              <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Contact Us</Button>
+              <Button className="bg-white text-emerald-600 hover:bg-emerald-50">Contact Us</Button>
             </div>
           </div>
         </div>
@@ -51,10 +51,10 @@ export default function HomePage() {
               and we have the proof.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-emerald-700 hover:bg-slate-100 font-semibold">
+              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
                 See The Evidence
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
+              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
                 Contact Us Today
               </Button>
             </div>
@@ -66,8 +66,8 @@ export default function HomePage() {
       <section id="metrics" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-16">
-            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Hispanic Voter Metrics</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className="font-serif text-4xl font-bold text-emerald-600 mb-4">Hispanic Voter Metrics</h2>
+            <p className="text-xl text-emerald-600 max-w-3xl mx-auto">
               Comprehensive forensic analysis revealing critical patterns in Hispanic voter participation across Texas.
             </p>
           </div>
@@ -78,8 +78,8 @@ export default function HomePage() {
                 <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <BarChart3 className="h-10 w-10 text-emerald-600" />
                 </div>
-                <CardTitle className="font-serif text-3xl text-slate-900 mb-4">The Delta Factor</CardTitle>
-                <CardDescription className="text-lg text-slate-600 leading-relaxed">
+                <CardTitle className="font-serif text-3xl text-emerald-600 mb-4">The Delta Factor</CardTitle>
+                <CardDescription className="text-lg text-emerald-600 leading-relaxed">
                   Our comprehensive forensic analysis reveals significant disparities in Hispanic voter participation
                   and access across Texas counties. This groundbreaking research identifies key barriers and proposes
                   evidence-based solutions for equitable civic engagement.
@@ -89,15 +89,15 @@ export default function HomePage() {
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-emerald-600 mb-2">23%</div>
-                    <div className="text-sm text-slate-600">Participation Gap</div>
+                    <div className="text-sm text-emerald-600">Participation Gap</div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-emerald-600 mb-2">254</div>
-                    <div className="text-sm text-slate-600">Counties Analyzed</div>
+                    <div className="text-sm text-emerald-600">Counties Analyzed</div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold text-emerald-600 mb-2">1.2M</div>
-                    <div className="text-sm text-slate-600">Voters Impacted</div>
+                    <div className="text-sm text-emerald-600">Voters Impacted</div>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -111,23 +111,13 @@ export default function HomePage() {
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </a>
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
-                    asChild
-                  >
+                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold" asChild>
                     <a href="https://youtu.be/g5Dj5kWTeAY?feature=shared" target="_blank" rel="noopener noreferrer">
                       Watch Report Video
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </a>
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
-                    asChild
-                  >
+                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold" asChild>
                     <a
                       href="https://data.capitol.texas.gov/topic/redistricting"
                       target="_blank"
@@ -145,11 +135,11 @@ export default function HomePage() {
       </section>
 
       {/* Data & Research Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-16">
-            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Data & Research</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className="font-serif text-4xl font-bold text-emerald-600 mb-4">Data & Research</h2>
+            <p className="text-xl text-emerald-600 max-w-3xl mx-auto">
               Access comprehensive datasets and research findings that drive our policy recommendations.
             </p>
           </div>
@@ -160,10 +150,10 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="h-8 w-8 text-emerald-600" />
                 </div>
-                <CardTitle className="font-serif text-xl">Texas Redistricting Data</CardTitle>
+                <CardTitle className="font-serif text-xl text-emerald-600">Texas Redistricting Data</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <CardDescription className="text-slate-600 leading-relaxed mb-6">
+                <CardDescription className="text-emerald-600 leading-relaxed mb-6">
                   Official redistricting datasets from the Texas Capitol providing comprehensive demographic and voting
                   data across all counties.
                 </CardDescription>
@@ -185,18 +175,14 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FileText className="h-8 w-8 text-emerald-600" />
                 </div>
-                <CardTitle className="font-serif text-xl">Research Methodology</CardTitle>
+                <CardTitle className="font-serif text-xl text-emerald-600">Research Methodology</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
-                <CardDescription className="text-slate-600 leading-relaxed mb-6">
+                <CardDescription className="text-emerald-600 leading-relaxed mb-6">
                   Detailed documentation of our forensic analysis methods, statistical models, and data validation
                   processes.
                 </CardDescription>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
-                >
+                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
                   View Methods
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -210,8 +196,8 @@ export default function HomePage() {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-16">
-            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">The Challenge We Address</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className="font-serif text-4xl font-bold text-emerald-600 mb-4">The Challenge We Address</h2>
+            <p className="text-xl text-emerald-600 max-w-3xl mx-auto">
               We combine forensic policy analysis with grassroots advocacy to ensure Hispanic communities have equal
               access to voting rights and civic participation in Texas.
             </p>
@@ -223,10 +209,10 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="h-8 w-8 text-emerald-600" />
                 </div>
-                <CardTitle className="font-serif text-xl">Policy Analysis</CardTitle>
+                <CardTitle className="font-serif text-xl text-emerald-600">Policy Analysis</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-center text-slate-600 leading-relaxed">
+                <CardDescription className="text-center text-emerald-600 leading-relaxed">
                   Rigorous forensic analysis of voting policies, identifying barriers and advocating for equitable
                   solutions.
                 </CardDescription>
@@ -238,10 +224,10 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-emerald-600" />
                 </div>
-                <CardTitle className="font-serif text-xl">Community Engagement</CardTitle>
+                <CardTitle className="font-serif text-xl text-emerald-600">Community Engagement</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-center text-slate-600 leading-relaxed">
+                <CardDescription className="text-center text-emerald-600 leading-relaxed">
                   Building bridges within Hispanic communities to increase civic participation and voter turnout.
                 </CardDescription>
               </CardContent>
@@ -252,10 +238,10 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-emerald-600" />
                 </div>
-                <CardTitle className="font-serif text-xl">Rights Protection</CardTitle>
+                <CardTitle className="font-serif text-xl text-emerald-600">Rights Protection</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-center text-slate-600 leading-relaxed">
+                <CardDescription className="text-center text-emerald-600 leading-relaxed">
                   Defending voting rights through legal advocacy, education, and policy reform initiatives.
                 </CardDescription>
               </CardContent>
@@ -265,11 +251,11 @@ export default function HomePage() {
       </section>
 
       {/* Know Your Rights Section */}
-      <section id="rights" className="py-20 bg-slate-50">
+      <section id="rights" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-16">
-            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Know Your Rights</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className="font-serif text-4xl font-bold text-emerald-600 mb-4">Know Your Rights</h2>
+            <p className="text-xl text-emerald-600 max-w-3xl mx-auto">
               Stay informed about your voting rights and how to exercise them effectively in Texas.
             </p>
           </div>
@@ -313,11 +299,11 @@ export default function HomePage() {
                     <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
                       <item.icon className="h-5 w-5 text-emerald-600" />
                     </div>
-                    <CardTitle className="text-lg">{item.title}</CardTitle>
+                    <CardTitle className="text-lg text-emerald-600">{item.title}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-slate-600">{item.description}</CardDescription>
+                  <CardDescription className="text-emerald-600">{item.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -329,8 +315,8 @@ export default function HomePage() {
       <section id="impact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-16">
-            <h2 className="font-serif text-4xl font-bold text-slate-900 mb-4">Our Impact</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h2 className="font-serif text-4xl font-bold text-emerald-600 mb-4">Our Impact</h2>
+            <p className="text-xl text-emerald-600 max-w-3xl mx-auto">
               Real stories from community members whose lives have been changed through civic engagement.
             </p>
           </div>
@@ -366,13 +352,13 @@ export default function HomePage() {
                       <Heart className="h-6 w-6 text-emerald-600" />
                     </div>
                     <div>
-                      <CardTitle className="text-lg">{story.name}</CardTitle>
-                      <CardDescription>{story.location}</CardDescription>
+                      <CardTitle className="text-lg text-emerald-600">{story.name}</CardTitle>
+                      <CardDescription className="text-emerald-600">{story.location}</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-600 mb-4 leading-relaxed">"{story.story}"</p>
+                  <p className="text-emerald-600 mb-4 leading-relaxed">"{story.story}"</p>
                   <Badge className="bg-emerald-100 text-emerald-700">{story.impact}</Badge>
                 </CardContent>
               </Card>
@@ -385,16 +371,20 @@ export default function HomePage() {
       <section className="py-20 bg-emerald-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-4xl font-bold mb-4">Contact Us</h2>
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6">Contact Us</h2>
             <p className="text-xl text-emerald-100 mb-8">
               Ready to learn more about our research or discuss policy solutions? Get in touch with our team.
             </p>
+            <div className="mb-8 text-emerald-100">
+              <p className="text-lg mb-2">Website: www.hvmtx.com</p>
+              <p className="text-lg">Email: info@hvmtx.com</p>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-emerald-700 hover:bg-slate-100 font-semibold">
+              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
                 Email Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
+              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
                 Schedule Meeting
               </Button>
             </div>
@@ -403,38 +393,26 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-16">
+      <footer className="bg-emerald-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4 justify-center md:justify-start">
-                <Vote className="h-8 w-8 text-emerald-400" />
+                <Vote className="h-8 w-8 text-white" />
                 <span className="font-serif font-bold text-xl">Hispanic Votes Matter Texas</span>
               </div>
-              <p className="text-slate-300 mb-6 leading-relaxed">
+              <p className="text-emerald-100 mb-6 leading-relaxed">
                 Empowering Hispanic communities through forensic policy analysis, civic engagement, and voting rights
                 advocacy across Texas.
               </p>
               <div className="flex space-x-4 justify-center md:justify-start">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-slate-600 text-slate-300 hover:bg-slate-800 bg-transparent"
-                >
+                <Button className="bg-white text-emerald-600 hover:bg-emerald-50" size="sm">
                   Facebook
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-slate-600 text-slate-300 hover:bg-slate-800 bg-transparent"
-                >
+                <Button className="bg-white text-emerald-600 hover:bg-emerald-50" size="sm">
                   Twitter
                 </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-slate-600 text-slate-300 hover:bg-slate-800 bg-transparent"
-                >
+                <Button className="bg-white text-emerald-600 hover:bg-emerald-50" size="sm">
                   Instagram
                 </Button>
               </div>
@@ -442,24 +420,24 @@ export default function HomePage() {
 
             <div className="text-center md:text-left">
               <h3 className="font-serif font-semibold text-lg mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-slate-300">
+              <ul className="space-y-2 text-emerald-100">
                 <li>
-                  <a href="#about" className="hover:text-emerald-400 transition-colors">
+                  <a href="#about" className="hover:text-white transition-colors">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#rights" className="hover:text-emerald-400 transition-colors">
+                  <a href="#rights" className="hover:text-white transition-colors">
                     Know Your Rights
                   </a>
                 </li>
                 <li>
-                  <a href="#metrics" className="hover:text-emerald-400 transition-colors">
+                  <a href="#metrics" className="hover:text-white transition-colors">
                     Hispanic Voter Metrics
                   </a>
                 </li>
                 <li>
-                  <a href="#impact" className="hover:text-emerald-400 transition-colors">
+                  <a href="#impact" className="hover:text-white transition-colors">
                     Impact Stories
                   </a>
                 </li>
@@ -468,15 +446,15 @@ export default function HomePage() {
 
             <div className="text-center md:text-left">
               <h3 className="font-serif font-semibold text-lg mb-4">Contact</h3>
-              <ul className="space-y-2 text-slate-300">
-                <li>info@hispanicvotesmattertx.org</li>
-                <li>(512) 555-0123</li>
+              <ul className="space-y-2 text-emerald-100">
+                <li>info@hvmtx.com</li>
+                <li>www.hvmtx.com</li>
                 <li>Austin, Texas</li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
+          <div className="border-t border-emerald-500 mt-12 pt-8 text-center text-emerald-100">
             <p>&copy; 2024 Hispanic Votes Matter Texas. All rights reserved.</p>
           </div>
         </div>
