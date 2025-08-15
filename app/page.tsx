@@ -34,7 +34,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-600 to-emerald-700 text-white py-24">
+      <section className="relative bg-emerald-600 text-white py-24">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
@@ -368,11 +368,11 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-emerald-600 text-white">
+      <section className="py-24 bg-emerald-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6">Contact Us</h2>
-            <p className="text-xl text-emerald-100 mb-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6 leading-tight">Contact Us</h2>
+            <p className="text-xl md:text-2xl text-emerald-100 mb-8 leading-relaxed max-w-3xl mx-auto">
               Ready to learn more about our research or discuss policy solutions? Get in touch with our team.
             </p>
             <div className="mb-8 text-emerald-100">
@@ -380,9 +380,15 @@ export default function HomePage() {
               <p className="text-lg">Email: info@hvmtx.com</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
-                Email Us
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold" asChild>
+                <a
+                  href="https://docs.google.com/document/d/1-D0bmgClNBeWeEimHZTKc_eVQvqOyoUhGxuZNkxzQMM/edit?usp=drivesdk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Email Us
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
               <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
                 Schedule Meeting
