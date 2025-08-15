@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
-              <img src="/placeholder-2il7z.png" alt="HVMT Logo" className="h-8 w-8" />
+              <img src="/hispanic-votes-matter-logo.jpeg" alt="HVMT Logo" className="h-10 w-10 rounded-full" />
               <Vote className="h-8 w-8 text-white" />
               <span className="font-serif font-bold text-xl text-white">Hispanic Votes Matter Texas</span>
             </div>
@@ -24,9 +24,6 @@ export default function HomePage() {
               </a>
               <a href="#metrics" className="text-emerald-100 hover:text-white transition-colors font-medium">
                 Hispanic Voter Metrics
-              </a>
-              <a href="#impact" className="text-emerald-100 hover:text-white transition-colors font-medium">
-                Impact
               </a>
               <Button className="bg-white text-emerald-600 hover:bg-emerald-50">Contact Us</Button>
             </div>
@@ -311,62 +308,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Impact Stories Section */}
-      <section id="impact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-16">
-            <h2 className="font-serif text-4xl font-bold text-emerald-600 mb-4">Our Impact</h2>
-            <p className="text-xl text-emerald-600 max-w-3xl mx-auto">
-              Real stories from community members whose lives have been changed through civic engagement.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Maria Rodriguez",
-                location: "Houston, TX",
-                story:
-                  "Through HVMT's voter education program, I learned about my rights and helped register 50 new voters in my neighborhood.",
-                impact: "50+ New Voters",
-              },
-              {
-                name: "Carlos Mendoza",
-                location: "San Antonio, TX",
-                story:
-                  "The policy analysis helped our community challenge discriminatory voting practices and secure better polling access.",
-                impact: "Policy Change",
-              },
-              {
-                name: "Ana Gutierrez",
-                location: "Dallas, TX",
-                story:
-                  "I became a community organizer after attending HVMT workshops. Now I lead voter registration drives across the city.",
-                impact: "Community Leader",
-              },
-            ].map((story, index) => (
-              <Card key={index} className="border-0 shadow-lg">
-                <CardHeader>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <Heart className="h-6 w-6 text-emerald-600" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg text-emerald-600">{story.name}</CardTitle>
-                      <CardDescription className="text-emerald-600">{story.location}</CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-emerald-600 mb-4 leading-relaxed">"{story.story}"</p>
-                  <Badge className="bg-emerald-100 text-emerald-700">{story.impact}</Badge>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Combined Contact Section */}
       <section className="py-24 bg-emerald-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -436,11 +377,6 @@ export default function HomePage() {
                 <li>
                   <a href="#metrics" className="hover:text-white transition-colors">
                     Hispanic Voter Metrics
-                  </a>
-                </li>
-                <li>
-                  <a href="#impact" className="hover:text-white transition-colors">
-                    Impact Stories
                   </a>
                 </li>
               </ul>
