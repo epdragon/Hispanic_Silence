@@ -11,6 +11,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
+              <img src="/placeholder-2il7z.png" alt="HVMT Logo" className="h-8 w-8" />
               <Vote className="h-8 w-8 text-white" />
               <span className="font-serif font-bold text-xl text-white">Hispanic Votes Matter Texas</span>
             </div>
@@ -34,27 +35,26 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-emerald-600 text-white py-24">
-        <div className="absolute inset-0 bg-black/10"></div>
+      <section className="relative bg-white text-emerald-600 py-24">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-emerald-500/20 text-emerald-100 border-emerald-400/30">
+            <Badge className="mb-6 bg-emerald-100 text-emerald-600 border-emerald-200">
               Forensic Public Policy Analysis
             </Badge>
             <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Greg Abbott and the Texas GOP: The Racist Formula Exposed
             </h1>
-            <p className="text-xl md:text-2xl text-emerald-100 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-emerald-700 mb-8 leading-relaxed max-w-3xl mx-auto">
               This isn't just politics, it's a calculated racial strategy. A new forensic analysis proves Governor
               Abbott and the Texas GOP used a secret mathematical formula to deliberately target and dilute the votes of
               Hispanic Texans. The new congressional maps were engineered to systematically weaken Hispanic communities,
               and we have the proof.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
+              <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-semibold">
                 See The Evidence
               </Button>
-              <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold">
+              <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-semibold">
                 Contact Us Today
               </Button>
             </div>
@@ -367,7 +367,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Combined Contact Section */}
       <section className="py-24 bg-emerald-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
@@ -381,11 +381,7 @@ export default function HomePage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-emerald-700 hover:bg-emerald-50 font-semibold" asChild>
-                <a
-                  href="https://docs.google.com/document/d/1-D0bmgClNBeWeEimHZTKc_eVQvqOyoUhGxuZNkxzQMM/edit?usp=drivesdk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="mailto:info@hvmtx.com">
                   Email Us
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
