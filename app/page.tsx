@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Users, FileText, BarChart3, Vote, Shield, Heart } from "lucide-react"
 
 export default function HomePage() {
@@ -32,12 +31,9 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-white text-emerald-600 py-24">
+      <section className="relative bg-white text-emerald-600 py-16">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-emerald-100 text-emerald-600 border-emerald-200">
-              Forensic Public Policy Analysis
-            </Badge>
             <h1 className="font-serif text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Greg Abbott and the Texas GOP: The Racist Formula Exposed
             </h1>
