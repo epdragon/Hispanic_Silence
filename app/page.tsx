@@ -43,14 +43,6 @@ export default function HomePage() {
               Hispanic Texans. The new congressional maps were engineered to systematically weaken Hispanic communities,
               and we have the proof.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-semibold">
-                See The Evidence
-              </Button>
-              <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-semibold">
-                Contact Us Today
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -94,7 +86,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold" asChild>
+                  <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-semibold" asChild>
                     <a
                       href="https://docs.google.com/document/d/1-D0bmgClNBeWeEimHZTKc_eVQvqOyoUhGxuZNkxzQMM/edit?usp=drivesdk"
                       target="_blank"
